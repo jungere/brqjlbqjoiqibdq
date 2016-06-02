@@ -10,22 +10,26 @@ var UNOPayURL = 'http://demo.unochat.io:8080/Server';
 module.exports = {
     
     /*
-     * 麦新积分充值 、 提现
-     * unochat_uid 麦信用户ID
-     * orderNo 订单号
-     * amout 金额 
-     * orderTime 订单时间
-     * remark 备注
-     * return mixed 状态说明
-     * 101 认证失败
-     * 102 订单号不能为空
-     * 103 金额不正确
-     * 104 创建订单失败
-     * 105 麦信号不正确 10分钟冻结时间
-     * 106 商户余额不足
-     * 109 动态口令不正确
-     * 110 扣款失败
+     * Receive and Send Tokens as a Unochat Merchant Account 
+     * unochat_uid   User ID of unochat
+     * orderNo   Your preferred Order No.
+     * amout Amount to be transacted 
+     * orderTime   Transaction Time 
+     * remark    Remarks
+     * return mixed     Status Description
+     * 101 Authorization Failed
+     * 102 Failed to retrieve Order No
+     * 103 Invalid Amount
+     * 104 Failed to initiate Transaction
+     * 105 Invalid Unochat ID, Payment suspended for 10 minutes
+     * 106 Insufficient Fund in Merchant's account 
+     * 109 Invalid Authentication Code
+     * 110 Unable to Deduct Amount
      */
+     
+     
+     /* Collect Tokens from Unochat users to my Unochat Merchant Account */
+     
     unoRecharge : function(unochatId, orderNo, amount, orderTime, remark, callback){
         var params = {
             unochat_uid : unochatId,
@@ -52,6 +56,9 @@ module.exports = {
             }
         })
     },
+    
+    /* Send tokens from My unochat Merchant account to a designated Unochat Users */
+    
     unoWithdraw : function(){
         
     }
